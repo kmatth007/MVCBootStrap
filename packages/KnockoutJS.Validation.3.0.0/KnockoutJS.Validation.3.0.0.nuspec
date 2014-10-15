@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>KnockoutJS.Validation</id>
+    <version>3.0.0</version>
+    <authors>Eric Barnard and many others</authors>
+    <owners>Eric Barnard and many others</owners>
+    <licenseUrl>http://opensource.org/licenses/mit-license.html</licenseUrl>
+    <projectUrl>https://github.com/Knockout-Contrib/Knockout-Validation</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>A validation plugin for KnockoutJS.</description>
+    <summary>A validation plugin for KnockoutJS</summary>
+    <releaseNotes>This is not based on an official knockout validation release since there hasn't been one recently. Instead, this is the latest code from the project site as of 8/4/2014.</releaseNotes>
+    <language>en-US</language>
+    <tags>knockout validation knockout.js</tags>
+    <dependencies>
+      <dependency id="knockoutjs" version="3.0.0" />
+    </dependencies>
+  </metadata>
+</package>
