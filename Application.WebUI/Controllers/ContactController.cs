@@ -8,6 +8,13 @@ namespace Application.WebUI.Controllers
 {
     public class ContactController : Controller
     {
+
+
+        public ActionResult CreateEdit()
+        {
+            return View();
+        }
+
         //
         // GET: /Contact/
 

@@ -1,25 +1,72 @@
 ﻿<script src="~/Scripts/knockout-3.2.0.js"></script>
+<script src="~/Scripts/Contact.js"></script>
+<input type="button"  class="btn btn-small btn-primary"  value="New Contact" data-bind="click: $root.createProfile" />
+<hr />
 <table class="table table-striped table-bordered table-condensed">
     <tr> 
         <th>First Name</th>
         <th>Last Name</th>
         <th>Email</th>
+        <th></th>
     </tr>
     <tbody data-bind="foreach: Profiles">
-        <tr">
-            <td data-bind="text: FirstName"></td>
+        <tr>
+            <td class="name"><a data-bind="text: FirstName, click: $parent.editProfile"></a></td>
             <td data-bind="text: LastName"></td>
             <td data-bind="text: Email"></td>
+            <td><button class="btn btn-mini btn-danger" data-bind="click: $parent.removeProfile">remove</button></td>
         </tr>
     </tbody>
 </table>
- 
 <script type="text/javascript">
-    ko.applyBindings({
-        Profiles: [
-            { FirstName: 'Bert', LastName: 'Bertington', Email: 'xxx@aol.com' },
-            { FirstName: 'Charles', LastName: 'Charlesforth', Email: 'bbb@aol.com'},
-            { FirstName: 'Denise', LastName: 'Dentiste', Email: 'ttt@aol.com' }
-        ]
-    });
+    //ko.applyBindings({
+    //    Profiles: [
+    //        { FirstName: 'Bert', LastName: 'Bertington', Email: 'xxx@aol.com' },
+    //        { FirstName: 'Charles', LastName: 'Charlesforth', Email: 'bbb@aol.com'},
+    //        { FirstName: 'Denise', LastName: 'Dentiste', Email: 'ttt@aol.com' }
+    //    ]
+    //});
+
+    var DummyProfile = [
+    {
+        "ProfileId": 1,
+        "FirstName": "Anand",
+        "LastName": "Pandey",
+        "Email": "anand@anandpandey.com"
+    },
+    {
+        "ProfileId": 2,
+        "FirstName": "John",
+        "LastName": "Cena",
+        "Email": "john@cena.com"
+    }
+    ]
+
+    var ProfilesViewModel = function () {
+        var self = this;
+        var refresh = function () {
+            self.Profiles(DummyProfile);
+        };
+
+        // Public data properties
+        self.Profiles = ko.observableArray([]);
+
+        self.createProfile = function () {
+            window.location.href = '/Contact/CreateEdit/0';
+        };
+
+        self.editProfile = function (profile) {
+            window.location.href = '/Contact/CreateEdit/' + profile.ProfileId;
+        };
+
+        self.removeProfile = function (profile) {
+            if (confirm("Are you sure you want to delete this profile?")) {
+                self.Profiles.remove(profile);
+            }
+        };
+        refresh();
+    };
+    ko.applyBindings(new ProfilesViewModel());
+
+   
 </script>

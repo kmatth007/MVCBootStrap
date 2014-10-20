@@ -18,7 +18,7 @@ namespace Application.WebUI
                         "~/Scripts/jquery.unobtrusive*",
                         "~/Scripts/jquery.validate*"));
 
-            bundles.Add(new ScriptBundle("~/bundles/knockout").Include("~/Scripts/knockout-3.20.js"));
+            bundles.Add(new ScriptBundle("~/bundles/knockout").Include("~/Scripts/{version}.js"));
             bundles.Add(new StyleBundle("~/Content/css").Include("~/Content/bootstrap.css"));
 
             // Use the development version of Modernizr to develop with and learn from. Then, when you're
